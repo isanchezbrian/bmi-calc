@@ -19,7 +19,21 @@ function App() {
     } else {
       let bmi = (weight / (height * height) * 703 )
       setBmi(bmi.toFixed(1))
+
+      //Logic for message
+
+      if (bmi < 25) {
+        setMessage('You are underweight')
+      } else if (bmi >= 25 && bmi < 30) {
+        setMessage('You are a healthy weight')
+      } else {
+        setMessage('You are overweight')
+      }
     }
+  }
+
+  let reload = () => {
+    window.location.reload();
   }
 
   return (
@@ -37,7 +51,7 @@ function App() {
           </div>
           <div>
             <button className='btn' type='submit'>Submit</button>
-            <button className='btn btn-outline'>Submit</button>
+            <button className='btn btn-outline' onClick={reload}>Reload</button>
           </div>
         </form>
         <div className='center'>
